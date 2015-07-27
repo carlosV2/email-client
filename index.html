@@ -2,6 +2,11 @@
 <head>
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+	<style type="text/css">
+		.emailDetails .body {
+			white-space: pre-line;
+		}
+	</style>
 	<meta name="viewport" content="initial-scale=1" />
 </head>
 <body layout="column" ng-controller="AppCtrl">
@@ -23,8 +28,9 @@
 				<li ng-repeat="group in groupedData | orderBy:'-date'">
 					<span>{{group.date | date:'shortDate'}}</span>
 					<ul>
-						<li ng-repeat="email in group.emails">
+						<li ng-repeat="email in group.emails | orderBy:'-dateReceived'" ng-class="{new:!email.read}">
 							<a href="#/email/{{email._id}}">
+								<div class="date">{{email.dateReceived * 1000 | date:'shortTime'}}</div>
 								<div class="sender">{{email.fromName}}</div>
 								<div class="subject">{{email.subject}}</div>
 							</a>
@@ -55,8 +61,14 @@
 	</script>
 
 	<script type="text/ng-template" id="views/emailDetails.html">
-	    <h2>Email Details</h2>
-	    <pre>{{emailData | json}}</pre>
+	    <div class="emailDetails">
+	    		<div class="sender">From: <strong class="data" title="{{emailData.fromEmail}}">{{emailData.fromName}}</strong></div>
+	    		<div class="receiver">To: <strong class="data">your-email@example.com</strong></div>
+	    		<div class="date">Received: <strong class="data">{{emailData.dateReceived * 1000 | date:'medium'}}</strong></div>
+	    		<h2 class="subject">Subject: {{emailData.subject}}</h2>
+	    		<p class="body">{{emailData.content}}</p>
+	    	</div>
+	    </div>
 	</script>
 
 </body>
