@@ -3,6 +3,60 @@
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
 	<style type="text/css">
+		UL.emailList, 
+		UL.emailList LI, 
+		UL.emailList UL {
+			list-style: none;
+			padding-left: 0px;
+		}
+		UL.emailList .groupSeperator {
+			height: 40px;
+			line-height: 40px;
+			font-size: 120%;
+			padding: 0px 15px;
+			border-top: 2px solid #CCCCCC;
+			border-bottom: 2px solid #CCCCCC;
+			font-weight: bold;
+			background-color: #E5E5E5;
+		}
+		UL.emailList LI.emailWrapper {
+			position: relative;
+			padding: 10px 15px;
+			border-bottom: 1px solid #CCCCCC;
+			height: 80px;
+		}
+		UL.emailList LI.emailWrapper:last-child {
+			border-bottom: none;
+		}
+		UL.emailList LI.emailWrapper.new {
+			background-color: #F5F5F5;
+		}
+		UL.emailList LI.emailWrapper A,
+		UL.emailList LI.emailWrapper A:hover {
+			color: #333333;
+			text-decoration: none;
+		}
+		UL.emailList LI.emailWrapper .sender {
+			font-weight: bold;
+		}
+		UL.emailList LI.emailWrapper .subject {
+			padding-top: 5px;
+			font-size: 80%;
+		}
+		UL.emailList LI.emailWrapper .date {
+			font-weight: 300;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+		}
+		.emailDetails .subject {
+			white-space: nowrap;
+			overflow: hidden;
+		    text-overflow: ellipsis;
+		    border-top: 2px solid #CCCCCC;
+    		padding-top: 10px;
+    		margin-top: 15px;
+		}
 		.emailDetails .body {
 			white-space: pre-line;
 		}
@@ -24,11 +78,11 @@
 			<md-checkbox ng-model="showRead" aria-label="Show read">
           		Show read
         	</md-checkbox>
-			<ul>
+			<ul class="emailList">
 				<li ng-repeat="group in groupedData | orderBy:'-date'">
-					<span>{{group.date | date:'shortDate'}}</span>
+					<div class="groupSeperator">{{group.date | date:'shortDate'}}</div>
 					<ul>
-						<li ng-repeat="email in group.emails | orderBy:'-dateReceived'" ng-class="{new:!email.read}">
+						<li class="emailWrapper" ng-repeat="email in group.emails | orderBy:'-dateReceived'" ng-class="{new:!email.read}">
 							<a href="#/email/{{email._id}}">
 								<div class="date">{{email.dateReceived * 1000 | date:'shortTime'}}</div>
 								<div class="sender">{{email.fromName}}</div>
