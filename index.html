@@ -24,12 +24,24 @@
 			padding: 0px;
 			border-bottom: 1px solid #CCCCCC;
 			height: 70px;
+			overflow: hidden;
 		}
 		UL.emailList LI.emailWrapper:last-child {
 			border-bottom: none;
 		}
 		UL.emailList LI.emailWrapper.new {
 			background-color: #F5F5F5;
+		}
+		UL.emailList LI.emailWrapper.new:before {
+			content: ' ';
+			height: 16px;
+			width: 16px;
+			display: inline-block;
+    		position: absolute;
+	    	background-color: #FF9900;
+		    right: -8px;
+    		top: -8px;
+    		transform: rotate(45deg);
 		}
 		UL.emailList LI.emailWrapper A {
 			color: #333333;
