@@ -23,20 +23,6 @@
 		UL.emailList LI.emailWrapper:last-child {
 			border-bottom: none;
 		}
-		UL.emailList LI.emailWrapper.new {
-			background-color: #F5F5F5;
-		}
-		UL.emailList LI.emailWrapper.new:before {
-			content: ' ';
-			height: 16px;
-			width: 16px;
-			display: inline-block;
-    		position: absolute;
-	    	background-color: #FF9900;
-		    right: -8px;
-    		top: -8px;
-    		transform: rotate(45deg);
-		}
 		UL.emailList LI.emailWrapper A {
 			color: #333333;
 			text-decoration: none;
@@ -91,7 +77,7 @@
 		<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
 		<div ng-controller="InboxListCtrl">
             <ul class="emailList">
-                <li class="emailWrapper" ng-repeat="email in emails | orderBy:'-dateReceived'" ng-class="{new:!email.read}">
+                <li class="emailWrapper" ng-repeat="email in emails | orderBy:'-dateReceived'">
                     <md-button href="#/email/{{email._id}}">
                         <div class="date">{{email.dateReceived * 1000 | date:'shortTime'}}</div>
                         <div class="sender">{{email.fromName}}</div>
