@@ -9,16 +9,6 @@
 			list-style: none;
 			padding-left: 0px;
 		}
-		UL.emailList .groupSeperator {
-			height: 40px;
-			line-height: 40px;
-			font-size: 120%;
-			padding: 0px 15px;
-			border-top: 2px solid #CCCCCC;
-			border-bottom: 2px solid #CCCCCC;
-			font-weight: bold;
-			background-color: #E5E5E5;
-		}
 		UL.emailList LI.emailWrapper {
 			position: relative;
 			padding: 0px;
@@ -99,20 +89,15 @@
 			<md-checkbox ng-model="showRead" aria-label="Show read">
           		Show read
         	</md-checkbox>
-			<ul class="emailList">
-				<li ng-repeat="group in groupedData | orderBy:'-date'">
-					<div class="groupSeperator">{{group.date | date:'shortDate'}}</div>
-					<ul>
-						<li class="emailWrapper" ng-repeat="email in group.emails | orderBy:'-dateReceived'" ng-class="{new:!email.read}">
-							<md-button href="#/email/{{email._id}}">
-								<div class="date">{{email.dateReceived * 1000 | date:'shortTime'}}</div>
-								<div class="sender">{{email.fromName}}</div>
-								<div class="subject">{{email.subject}}</div>
-							</md-button>
-						</li>
-					</ul>
-    			</li>
-			</ul>
+            <ul class="emailList">
+                <li class="emailWrapper" ng-repeat="email in emails | orderBy:'-dateReceived'" ng-class="{new:!email.read}">
+                    <md-button href="#/email/{{email._id}}">
+                        <div class="date">{{email.dateReceived * 1000 | date:'shortTime'}}</div>
+                        <div class="sender">{{email.fromName}}</div>
+                        <div class="subject">{{email.subject}}</div>
+                    </md-button>
+                </li>
+            </ul>
 		</div>
 		</md-sidenav>
 		<div layout="column" flex id="content">
