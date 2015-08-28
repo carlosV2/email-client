@@ -3,6 +3,10 @@
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
 	<style type="text/css">
+        UL.emailList {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
 		UL.emailList, 
 		UL.emailList LI, 
 		UL.emailList UL {
@@ -86,9 +90,6 @@
 	<div layout="row" flex>
 		<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
 		<div ng-controller="InboxListCtrl">
-			<md-checkbox ng-model="showRead" aria-label="Show read">
-          		Show read
-        	</md-checkbox>
             <ul class="emailList">
                 <li class="emailWrapper" ng-repeat="email in emails | orderBy:'-dateReceived'" ng-class="{new:!email.read}">
                     <md-button href="#/email/{{email._id}}">

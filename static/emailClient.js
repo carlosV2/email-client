@@ -23,7 +23,6 @@ app.controller('AppCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
 
 .controller('InboxListCtrl', function($scope, $filter, emailData){
 	$scope.emails = emailData;
-	$scope.showRead = true;
 })
 
 .controller('EmailDetailsCtrl', function($scope, $routeParams, $location, emailData){
