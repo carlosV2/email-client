@@ -35,4 +35,15 @@ app.controller('AppCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
     }
 
     $scope.emailData = emailData[0];
+})
+
+.directive("htmlViewer", function() {
+    return {
+        restrict: "A",
+        link: function (scope,element) {
+            element[0].contentWindow.document.open();
+            element[0].contentWindow.document.write(scope.emailData.content);
+            element[0].contentWindow.document.close();
+        }
+    }
 });
