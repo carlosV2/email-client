@@ -1,0 +1,59 @@
+UL.emailList {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+UL.emailList,
+UL.emailList LI,
+UL.emailList UL {
+    list-style: none;
+    padding-left: 0px;
+}
+UL.emailList LI.emailWrapper {
+    position: relative;
+    padding: 0px;
+    border-bottom: 1px solid #CCCCCC;
+    height: 70px;
+    overflow: hidden;
+}
+UL.emailList LI.emailWrapper:last-child {
+    border-bottom: none;
+}
+UL.emailList LI.emailWrapper A {
+    color: #333333;
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 10px 15px;
+    text-align: left;
+    line-height: 1;
+}
+UL.emailList LI.emailWrapper .sender {
+    font-weight: bold;
+}
+UL.emailList LI.emailWrapper .subject {
+    padding-top: 5px;
+    text-transform: none;
+    font-weight: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 22px;
+}
+UL.emailList LI.emailWrapper .date {
+    font-weight: 300;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.emailDetails .subject {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-top: 2px solid #CCCCCC;
+    padding-top: 10px;
+    margin-top: 15px;
+}
+.emailDetails .body {
+    white-space: pre-line;
+}
