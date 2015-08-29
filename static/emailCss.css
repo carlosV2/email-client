@@ -46,6 +46,9 @@ UL.emailList LI.emailWrapper .date {
     top: 10px;
     right: 10px;
 }
+.emailDetails {
+    position: relative;
+}
 .emailDetails .subject {
     white-space: nowrap;
     overflow: hidden;
@@ -56,4 +59,28 @@ UL.emailList LI.emailWrapper .date {
 }
 .emailDetails .body {
     white-space: pre-line;
+}
+
+
+input[type='radio'] {
+    display: none;
+}
+
+label.text,
+label.html {
+    width: 48px;
+    height: 48px;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+label.text {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAHFJREFUaIHt2MENgDAMQ1GT/eeCBrETXJiAHNyU/6RIPTqnWpGAspR0N52xvY+2wh2gigXcQtJwhyjY3QEAgC7ktcRP3NoSC6Q7RAFdCMAELvk7zddJupAbC7iFpNMdouBwBwCA3l2Iu5AdC7hxF8LfPbL7x/FL+PBqAAAAAElFTkSuQmCC');
+}
+
+label.html {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAAvxJREFUaIHtmE2ITWEYx3/3ay4mZpJmZSEbGywkE2UoGx8bYSLjuySakpRQFpKN1GxEycaGhQ1ZmNgxJGOMBpdmjEvNcCNKxESMxTuHc545533Ouedcszn/euve8zzP//k/5/04zzmQIkWKFClSpFBxHhh1jXNJEWeTIlKwRPy/+5/yJoJGvHd/FJg9oYoiYhVe8RUgkxR5EktohmL3Wz6jIWNVxCmgCegA7it+soB7rt/dwGkSKCQKGoETwFfMnRyy+OZdfs5Y7LJXxq59AY4DDTXQ+xf1wGHgkxBkK2CB8B0Bii57Rdg/AoeAKUkKLwLtPsnCFNAufLuEPYjzHbAPqIsjPA/sAF4HJHFGt4XjkvA9Jey9CncZ2A7kogjPAq3Ac4V8YIy8YOF6I2LWCnsB2Am8VHKVgA0oh04Gc2Y/UsheAFswM2TDTJ/YpgDfPLAN6Fdy9wAr8XmOtAB3lOBnwCbCT2eriB8IEZMH2tBn/zaw1AnqVJyfjImJ+szoEDwXI8TmgI3AU0XbDSzGx8C6KoQ7eCD49lTBkcWs/T6LTt+LZ2MIB3OO/xScc2PwZRnfklsLcDZMtTPQIrg+V8mTwyxf23HLZYvR2bxt6KeOG0cER2dE4QXMqWTbzL8xzxkA5gPXlEIGgd14W4EgXBexx0IKL2L2SlnRchWY50fQDNxSgoeA/QT3KxlMT+OOWaEIrwcOAMNK7pvAIoULgOX869uDxntMczdNxM4Rfr+AqQF5GoCjwAclVxewLIxwNzLAavR+pV/E7RL2XkuOVwp3D6Y7iPUGp/VGshu9IOxnLNxB3WgJWB9XuEQO07zJDSYLKAn7ZgunLGAQ2ErE7jMq6oC9wFvGFzCd8XdzloXLKWAIc/rYOtvEMRk4iGk5HKzBK34Y+zLow5w+k2qkMRTcyU/iLeBKhNiqkMRnlRHXb9sXCC12wlEAvuGdgeYJVRQRC/GK/07Ml/IwSPLjrlw+3cCPBPl9EaXD1FDGfJxy8DBB7hQpUqRIURv8AYy+mqBuvUH0AAAAAElFTkSuQmCC');
 }
