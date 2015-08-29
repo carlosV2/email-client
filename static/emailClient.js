@@ -41,9 +41,22 @@ app.controller('AppCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
     return {
         restrict: "A",
         link: function (scope,element) {
-            element[0].contentWindow.document.open();
-            element[0].contentWindow.document.write(scope.emailData.content);
-            element[0].contentWindow.document.close();
+            iframe = element[0];
+
+            scope.$watch('visor', function (newValue) {
+                iframe.contentWindow.document.open();
+                if (newValue === 'text') {
+                    iframe.contentWindow.document.write(scope.emailData.content.text);
+                } else {
+                    iframe.contentWindow.document.write(scope.emailData.content.html);
+                }
+                iframe.contentWindow.document.close();
+            });
+
+            iframe.onload = function () {
+                iframe.style.height = '0px';
+                iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+            }
         }
     }
 });

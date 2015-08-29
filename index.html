@@ -2,67 +2,7 @@
 <head>
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.4/angular-material.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
-	<style type="text/css">
-        UL.emailList {
-            margin-top: 0;
-            margin-bottom: 0;
-        }
-		UL.emailList, 
-		UL.emailList LI, 
-		UL.emailList UL {
-			list-style: none;
-			padding-left: 0px;
-		}
-		UL.emailList LI.emailWrapper {
-			position: relative;
-			padding: 0px;
-			border-bottom: 1px solid #CCCCCC;
-			height: 70px;
-			overflow: hidden;
-		}
-		UL.emailList LI.emailWrapper:last-child {
-			border-bottom: none;
-		}
-		UL.emailList LI.emailWrapper A {
-			color: #333333;
-			text-decoration: none;
-    		width: 100%;
-			height: 100%;
-    		margin: 0px;
-    		padding: 10px 15px;
-    		text-align: left;
-    		line-height: 1;
-		}
-		UL.emailList LI.emailWrapper .sender {
-			font-weight: bold;
-		}
-		UL.emailList LI.emailWrapper .subject {
-			padding-top: 5px;
-			text-transform: none;
-			font-weight: normal;
-			white-space: nowrap;
-			overflow: hidden;
-		    text-overflow: ellipsis;
-            height: 22px;
-		}
-		UL.emailList LI.emailWrapper .date {
-			font-weight: 300;
-			position: absolute;
-			top: 10px;
-			right: 10px;
-		}
-		.emailDetails .subject {
-			white-space: nowrap;
-			overflow: hidden;
-		    text-overflow: ellipsis;
-		    border-top: 2px solid #CCCCCC;
-    		padding-top: 10px;
-    		margin-top: 15px;
-		}
-		.emailDetails .body {
-			white-space: pre-line;
-		}
-	</style>
+    <link rel="stylesheet" type="text/css" href="static/emailCss.css">
 	<meta name="viewport" content="initial-scale=1" />
 </head>
 <body layout="column" ng-controller="AppCtrl">
@@ -109,15 +49,16 @@
 	</script>
 
 	<script type="text/ng-template" id="views/emailDetails.html">
-	    <div class="emailDetails">
+	    <div class="emailDetails" ng-init="visor='html'">
 	    		<div class="sender">From: <strong class="data" title="{{emailData.fromEmail}}">{{emailData.fromName}}</strong></div>
 	    		<div class="receiver">To: <strong class="data">your-email@example.com</strong></div>
 	    		<div class="date">Received: <strong class="data">{{emailData.dateReceived * 1000 | date:'medium'}}</strong></div>
+	    		<label ng-show="visor=='html'" class="text"><input name="visor" type="radio" ng-model="visor" value="text"></label>
+	    		<label ng-show="visor=='text'" class="html"><input name="visor" type="radio" ng-model="visor" value="html"></label>
 	    		<h2 class="subject">Subject: {{emailData.subject}}</h2>
-	    		<p class="body">{{emailData.content}}</p>
+	    		<iframe class="viewer" html-viewer scrolling="no" frameborder="0"></iframe>
 	    	</div>
 	    </div>
 	</script>
-
 </body>
 </html>
